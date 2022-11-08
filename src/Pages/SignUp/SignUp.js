@@ -49,9 +49,8 @@ const SignUp = () => {
 
             })
             .catch(e => {
-                console.error(e);
+                toast.error(e.message);
                 setError(e.message);
-                form.reset()
             })
     }
 

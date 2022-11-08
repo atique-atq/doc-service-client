@@ -39,7 +39,6 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
 
-
                 const currentUser = {
                     email: user.email
                 }
@@ -62,7 +61,12 @@ const Login = () => {
                         navigate(from, { replace: true });
                     });
             })
-            .catch(error => console.log(error));
+            .catch(error => {
+                toast.error('Invalid Credential', {
+                    position: "top-right"
+                });
+                form.reset();
+            });
     }
 
     return (
@@ -78,13 +82,13 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-info hover:bg-success" type="submit" value="Login" />

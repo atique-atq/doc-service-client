@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.JPG';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -19,8 +20,21 @@ const Header = () => {
             user?.email ?
                 <>
                     <li className='font-semibold'><Link to='/orders'>Review</Link></li>
-                    <li className='font-semibold'>
+                    <li className='font-semibold mx-8'>
                         <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
+                    </li>
+                    <li className='font-semibold mx-8'>
+                        <button className='btn bg-white border-0 hover:bg-green-200' title={user?.displayName}> <small> user:</small>
+                            <div className='avatar'>
+                                <div className="w-8 rounded-full">
+                                    {
+                                        user?.photoURL ? <img src={user?.photoURL} alt="" /> : <FaUser className='mx-1 mt-2'></FaUser>
+                                    }
+
+                                </div>
+
+                            </div>
+                        </button>
                     </li>
                 </>
                 :
