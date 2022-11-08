@@ -5,42 +5,42 @@ const FAQ = () => {
     return (
         <div className='lg:mx-24 shadow-2xl mt-12'>
             <h5 className="text-5xl font-bold text-green-700 font-sans text-center">FAQ</h5>
-            <div className='flex items-center justify-between'>
-                <div>
-                    <img src={faq} alt="frequently asked question" className='w-full p-4' />
+            <div className='flex sm:flex-col md:flex-row items-center justify-between align-middle'>
+                <div className='w-11/12 p-5'>
+                    <img src={faq} alt="frequently asked question" className='w-full' />
                 </div>
-                <div>
-                    <div tabIndex={0} className="collapse collapse-arrow border-t border-base-300 bg-base-100 my-5">
+                <div className='w-full'>
+                    <div tabIndex={0} className="collapse collapse-arrow border-t border-base-300 bg-base-100">
                         <div className="collapse-title text-xl font-medium">
-                            Focus me to see content
+                            Which area Doctor have speciality?
                         </div>
                         <div className="collapse-content">
-                            <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                            <p>Practiced in plastice surgery, general surgery over three years in Apollo Hospital Dhaka (Now knowned as Ever Care Hospital). Now after joining Health Ministry as an Assistant Surgeon, practicing in Pediatric section.</p>
                         </div>
                     </div>
 
-                    <div tabIndex={0} className="collapse collapse-arrow border-t border-base-300 bg-base-100 ">
+                    <div tabIndex={1} className="collapse collapse-arrow border-t border-base-300 bg-base-100 ">
                         <div className="collapse-title text-xl font-medium">
-                            Focus me to see content
+                            When and where patients can come for visiting?
                         </div>
                         <div className="collapse-content">
-                            <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                            <p>Patients can come at Upazila Health Complex, Shakhipur at office hour. Besides office hour Patients can come to local clinic for having consultancy. </p>
                         </div>
                     </div>
                     <div tabIndex={0} className="collapse collapse-arrow border-t border-base-300 bg-base-100">
                         <div className="collapse-title text-xl font-medium">
-                            Focus me to see content
+                            How to have an appointment?
                         </div>
                         <div className="collapse-content">
-                            <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                            <p>People can come at Upazila health complex and have consultancy upon taking ticket. For private consultation besides office hour, people can book online appointment from web site. </p>
                         </div>
                     </div>
                     <div tabIndex={0} className="collapse collapse-arrow border-t border-base-300 bg-base-100">
                         <div className="collapse-title text-xl font-medium">
-                            Focus me to see content
+                            Which services are provided?
                         </div>
                         <div className="collapse-content">
-                            <p>tabIndex={0} attribute is necessary to make the div focusable</p>
+                            <p>General Surgery, plastic surgery, Pediatric consultation. People can also have ultrasonogram and others test. </p>
                         </div>
                     </div>
                 </div>

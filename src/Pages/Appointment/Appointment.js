@@ -10,8 +10,8 @@ const Appointment = () => {
         event.target.reset();
     }
     return (
-        <div>
-            <div className="hero ">
+        <div className='mt-12'>
+            <div className="hero">
                 <div className="hero-content flex-col lg:flex-row mx-20">
                     <div className="text-center lg:text-left mx-10">
                         <h5 className="text-5xl font-bold text-[rgb(52,203,203)] font-sans">Make Appointment!</h5>

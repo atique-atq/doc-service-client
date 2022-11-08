@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Paediatric Urology",
+    "description": "valuate each child are evaluated carefully. After diagnosing your condition, we discuss available treatment and surgery options, and recommend the most effective treatment. Modern laser circumcision are provided, which ensures almost no bleeding & pain",
+    "price": "3000-8000 tk",
+    "img": "https://www.evercarebd.com/wp-content/uploads/2022/10/Child.jpg"
+  },
+  {
+    "name": "General Physician",
+    "description": "As the part of general practice, all the patients can come here. Prescriptions are made upon investigating thoroughly the patient. If needed referred for  diagnostic tests. ",
+    "price": "500 tk",
+    "img": "https://www.evercarebd.com/wp-content/uploads/2022/01/Heart-Check-for-women.jpeg"
+  },
+  {
+    "name": "General surgery",
+    "description": "General surgeons have such broad knowledge, they perform a variety of emergency procedures. You may see a general surgeon if you have appendicitis, a hernia, gallstones, or even a gunshot wound..",
+    "price": "2000-5000tk",
+    "img": "https://lubanahospital.com/img/photo/1.jpg"
+  },
+  {
+    "name": "Medical checkup",
+    "description": "Regular check-ups can help find potential health issues before they become a problem. When you see your doctor regularly, they are able to detect health conditions or diseases early. Early detection gives you the best chance for getting the right treatment quickly, avoiding any complications",
+    "price": "2000tk",
+    "img": "https://lubanahospital.com/img/photo/5.jpg"
+  },
+  {
+    "name": "Gyn Care",
+    "description": "Infertility management and IVF procedures are handled with most priority.  With the experience of special Gynoecology Training, people are served with the most priority and care",
+    "price": "500tk",
+    "img": "https://play-lh.googleusercontent.com/XX2CIZW_YMuNEZMXf6mFK6LXdRqXDTLnLzyM-BrH5z-i60haPtDo47VE9QSvf8woWX5x"
+  },
+  {
+    "name": "Paediatric Surgery",
+    "description": "In this digital time everywhere a good graphics designer is like a diamond.After finishing this course our trainee can compete in - software, advertisement, newspaper, television etc.",
+    "price": "2000-8000tk",
+    "img": "https://onphospitals.com/wp-content/uploads/2021/11/pediatric-surgery.jpg"
+  }
+]
