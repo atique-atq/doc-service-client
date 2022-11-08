@@ -1,0 +1,13 @@
+.nopage-container{
+    background-color: #faaa93;
+    margin: 4% 20%;
+    padding: 10% 20%;
+    color: rgb(78, 77, 75);
+}
+
+/* tablet and mobile responsive */
+@media screen and (max-width:900px) {
+    .nopage-container{
+        margin: 100px 20px;
+    }
+}

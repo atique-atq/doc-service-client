@@ -14,17 +14,18 @@ const Header = () => {
     }
 
     const menuItems = <>
-        <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/'>Services</Link></li>
+        <li className='font-bold text-orange-600 font-bold'><Link to='/'>Home</Link></li>
+        <li className='font-bold text-orange-600 font-bold'><Link to='/'>Services</Link></li>
+        <li className='font-bold text-orange-600 font-bold'><Link to='/faq'>FAQ</Link></li>
+        <li className='font-bold text-orange-600 font-bold'><Link to='/orders'>Review</Link></li>
         {
             user?.email ?
                 <>
-                    <li className='font-semibold'><Link to='/orders'>Review</Link></li>
-                    <li className='font-semibold mx-8'>
-                        <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
+                    <li className='font-semibold ml-24'>
+                        <button onClick={handleLogOut} className='btn-ghost text-gray-500'>Sign Out</button>
                     </li>
-                    <li className='font-semibold mx-8'>
-                        <button className='btn bg-white border-0 hover:bg-green-200' title={user?.displayName}> <small> user:</small>
+                    <li className='font-semibold'>
+                        <button className='btn bg-white border-0 hover:bg-green-200 text-gray-500' title={user?.displayName}> <small> user:</small>
                             <div className='avatar'>
                                 <div className="w-8 rounded-full">
                                     {
@@ -38,7 +39,7 @@ const Header = () => {
                     </li>
                 </>
                 :
-                <li className='font-semibold'><Link to='/login'>Login</Link></li>
+                <li className='font-semibold text-lg text-cyan-800 font-bold lg:ml-24'><Link to='/login'>Login</Link></li>
         }
     </>
 
@@ -63,7 +64,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-outline btn-success">Appointment</button>
+                <Link to='/appointment'><button className="btn btn-outline btn-success">Appointment</button></Link>
             </div>
         </div>
     );
