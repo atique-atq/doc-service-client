@@ -42,14 +42,17 @@ const SignUp = () => {
                 form.reset();
                 handleUpdateUserProfile(name, photoURL);
                 navigate(from, { replace: true });
-                toast.success('Registraion Successful', {
+                toast.success('Registration Successful', {
                     position: "top-right"
                 });
+                form.reset();
+
             })
             .catch(e => {
                 console.error(e);
                 setError(e.message);
-            });
+                form.reset()
+            })
     }
 
     const handleUpdateUserProfile = (name, photoURL) => {
@@ -76,7 +79,7 @@ const SignUp = () => {
                             <input type="text" name='name' placeholder="your name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <input type="text" name='email' placeholder="your email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="your email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <input type="text" name='photoUrl' placeholder="your photo URL" className="input input-bordered" />
@@ -91,6 +94,9 @@ const SignUp = () => {
                             <input className="btn btn-info hover:bg-success" type="submit" value="Sign Up" />
                         </div>
                     </form>
+                    <p className="text-red-500 font-bold text-center">
+                        {error}
+                    </p>
                     <p className='text-center mb-2 mt-0'>Already Have an Account? <Link className='text-green-500 font-bold' to="/login">Login</Link> </p>
                 </div>
             </div>
