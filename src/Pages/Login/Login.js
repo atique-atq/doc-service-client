@@ -75,19 +75,13 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                     <img className='w-full m-0' src={img} alt="" />
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-12">
-                    <h1 className="text-5xl text-center font-bold py-0 my-0">Login</h1>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 py-6">
+                    <h3 className="text-4xl text-center font-bold py-0 my-0">Login</h3>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
                             <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">

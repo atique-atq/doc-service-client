@@ -14,10 +14,10 @@ const Header = () => {
     }
 
     const menuItems = <>
-        <li className='font-bold text-orange-600 font-bold'><Link to='/'>Home</Link></li>
-        <li className='font-bold text-orange-600 font-bold'><Link to='/'>Services</Link></li>
-        <li className='font-bold text-orange-600 font-bold'><Link to='/faq'>FAQ</Link></li>
-        <li className='font-bold text-orange-600 font-bold'><Link to='/orders'>Review</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/'>Home</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/'>Services</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/faq'>FAQ</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/orders'>Review</Link></li>
         {
             user?.email ?
                 <>
@@ -39,7 +39,7 @@ const Header = () => {
                     </li>
                 </>
                 :
-                <li className='font-semibold text-lg text-cyan-800 font-bold lg:ml-24'><Link to='/login'>Login</Link></li>
+                <li className='font-bold text-cyan-600 lg:ml-10'><Link to='/login'>Login</Link></li>
         }
     </>
 
