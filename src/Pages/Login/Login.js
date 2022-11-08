@@ -3,14 +3,31 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import img from '../../assets/images/loginImage.JPG';
 import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
-
-    const { login } = useContext(AuthContext);
+    const { login, googleSignIn } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Login Successful', {
+                    position: "top-right"
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     const handleLogin = event => {
         event.preventDefault();
@@ -76,7 +93,7 @@ const Login = () => {
                     <p className='text-center mb-4'>Don't Have an Account? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                     <hr />
 
-                    <button className="btn btn-outline border-0 btn-success mx-8 mt-3">
+                    <button className="btn btn-outline border-0 btn-success mx-8 mt-3" onClick={handleGoogleSignIn}>
                         <span className='px-3 text-orange-600'> <FaGoogle></FaGoogle></span>
                         <span className='text-black'> Login with Google</span></button>
                 </div>
