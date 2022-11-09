@@ -16,13 +16,19 @@ const Header = () => {
     const menuItems = <>
         <li className='font-bold text-cyan-600 ml-3'><Link to='/'>Home</Link></li>
         <li className='font-bold text-cyan-600 ml-3'><Link to='/allServices'>Services</Link></li>
-        <li className='font-bold text-cyan-600 ml-3'><Link to='/faq'>FAQ</Link></li>
-        <li className='font-bold text-cyan-600 ml-3'><Link to='/orders'>Review</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/blog'>Blog</Link></li>
         {
             user?.email ?
                 <>
-                    <li className='font-semibold ml-24'>
-                        <button onClick={handleLogOut} className='btn-ghost text-gray-500'>Sign Out</button>
+
+                    <li className='font-bold  text-cyan-600 ml-3'>
+                        <Link>My Reviews</Link>
+                    </li>
+                    <li className='font-bold  text-cyan-600 ml-3'>
+                        <Link>Add service</Link>
+                    </li>
+                    <li className='font-bold'>
+                        <button onClick={handleLogOut} className='btn-ghost text-gray-500 ml-4'>Sign Out</button>
                     </li>
                     <li className='font-semibold'>
                         <button className='btn bg-white border-0 hover:bg-green-200 text-gray-500' title={user?.displayName}> <small> user:</small>
