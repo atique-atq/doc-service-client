@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './HomerServices.css'
 import HomeServiceCard from './HomeServiceCard';
 
 const HomeServices = () => {
@@ -13,8 +12,8 @@ const HomeServices = () => {
     });
 
     return (
-        <div className='home-services-container'>
-            <h3 className='text-green-700 font-bold text-4xl text-center my-12 mt-24'> Services for Patient</h3>
+        <div>
+            <h3 className='text-green-700 font-bold text-4xl text-center my-12 mt-24 font-sans'> Services for Patient</h3>
             <div className='grid gap-6 grid-cols-1 lg:grid-cols-3'>
                 {
                     services?.map(service => <HomeServiceCard
@@ -23,12 +22,11 @@ const HomeServices = () => {
                     ></HomeServiceCard>)
                 }
             </div>
-            <hr className='mt-8 ' />
-
-            <div className='place-content-center w-full'>
+            <hr className='mt-8' />
+            <div className='flex justify-center mt-0'>
                 <Link to="/allServices">
-                    <input className='btn bg-[rgb(52,203,203)] hover:bg-green-700 border-0 mt-5 text-center'
-                        type="submit" value="Show More" />
+                    <input className='btn bg-[#ff6347] hover:bg-green-700 border-0 mt-2 text-center font-serif'
+                        type="submit" value="More Services" />
                 </Link>
             </div>
         </div>
