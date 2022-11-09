@@ -79,7 +79,7 @@ const Login = () => {
                     <h3 className="text-4xl text-center font-bold py-0 my-0">Login</h3>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
-                            <input type="text" name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
