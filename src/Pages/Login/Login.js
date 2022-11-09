@@ -43,8 +43,6 @@ const Login = () => {
                     email: user.email
                 }
 
-                console.log(currentUser);
-
                 // get jwt token
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',

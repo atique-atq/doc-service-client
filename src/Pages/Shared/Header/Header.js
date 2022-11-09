@@ -15,7 +15,7 @@ const Header = () => {
 
     const menuItems = <>
         <li className='font-bold text-cyan-600 ml-3'><Link to='/'>Home</Link></li>
-        <li className='font-bold text-cyan-600 ml-3'><Link to='/'>Services</Link></li>
+        <li className='font-bold text-cyan-600 ml-3'><Link to='/allServices'>Services</Link></li>
         <li className='font-bold text-cyan-600 ml-3'><Link to='/faq'>FAQ</Link></li>
         <li className='font-bold text-cyan-600 ml-3'><Link to='/orders'>Review</Link></li>
         {

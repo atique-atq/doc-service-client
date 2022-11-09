@@ -1,33 +1,39 @@
-import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import Reviews from './Reviews';
 
 const ServiceDetails = () => {
     const services = useLoaderData();
     const { _id, name, description, price, img } = services;
     const { user } = useContext(AuthContext);
+    const [submitReview, setSubmitReview] = useState([]);
+    const [reviewResponse, setReviewResponse] = useState([]);
 
-    //Please store the user info (email, etc.) and service info (service id, etc.) with each review to display the reviews correctly with the relevant service.
+    useEffect(() => {
+        fetch(`http://localhost:5001/review/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setReviewResponse(data);
+            })
+    }, [_id, submitReview]);
 
     const handleReviewSubmit = event => {
         event.preventDefault();
         const form = event.target;
         const reviewText = form.reviewText.value;
-        const rating = form.rating?.value || 'no rating point';
-        const photoUrl = user?.photoURL || 'no url found';
-
+        const rating = form.rating?.value || 'not found';
+        const photoUrl = user?.photoURL;
 
         const review = {
             serviceId: _id,
             userName: user?.displayName,
             userEmail: user?.email,
             photoUrl: photoUrl,
-            serviceName: name,
             reviewText: reviewText,
             rating: rating,
         }
-        console.log('review is:', review);
 
         fetch('http://localhost:5001/review', {
             method: 'POST',
@@ -38,6 +44,7 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
+                setSubmitReview(data);
                 console.log(data)
                 if (data.acknowledged) {
                     toast.success('Review added.', {
@@ -70,11 +77,18 @@ const ServiceDetails = () => {
                 </div>
 
                 <div>
-                    <h3 className='underline underline-offset-4 text-green-500 font-bold text-xl mb-2 text-center'>Review</h3>
-                    <div className="card-body">
+                    <h3 className='underline underline-offset-4 text-green-500 font-bold text-xl mb-2 text-center'>Review of {name}</h3>
+                    {
+                        <Reviews
+                            serviceId={_id}
+                            reviewResponse={reviewResponse}
+                        ></Reviews>
+                    }
+                    <hr />
+                    <div className="card-body py-0 mt-2">
                         {
                             user?.email ?
-                                <form onSubmit={handleReviewSubmit}>
+                                <form className='mt-0 pt-0' onSubmit={handleReviewSubmit}>
                                     <div className="form-control">
                                         <textarea type="text" name='reviewText' placeholder="Add a review text" className="input input-bordered mb-2" required />
                                     </div>
@@ -86,9 +100,8 @@ const ServiceDetails = () => {
                                     </div>
                                 </form>
                                 :
-                                <p>Please login to add a review</p>
+                                <p className='mt-2 text-center font-bold text-warning'>Please <Link className='text-primary underline' to="/login">Login </Link> to add a review</p>
                         }
-
 
                     </div>
 
