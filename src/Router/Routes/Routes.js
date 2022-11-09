@@ -4,6 +4,7 @@ import Appointment from "../../Pages/Appointment/Appointment";
 import FAQ from "../../Pages/Home/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
 import NoPageFound from "../../Pages/Shared/NoPageFound/NoPageFound";
 import SignUp from "../../Pages/SignUp/SignUp";
 
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
         path: '/allServices',
         loader: () => fetch('http://localhost:5001/services'),
         element: <AllServices></AllServices>
+      },
+      {
+        path: '/service/:serviceId',
+        loader: ({ params }) => fetch(`http://localhost:5001/service/${params.serviceId}`),
+        element: <ServiceDetail></ServiceDetail>
       },
       {
         path: '*',
