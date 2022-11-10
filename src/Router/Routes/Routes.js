@@ -2,6 +2,7 @@ import Main from "../../Layout/Main";
 import AddService from "../../Pages/AddService/AddService";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Appointment from "../../Pages/Appointment/Appointment";
+import Blog from "../../Pages/Blog/Blog";
 import FAQ from "../../Pages/Home/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -35,8 +36,8 @@ const router = createBrowserRouter([
         element: <Appointment></Appointment>
       },
       {
-        path: '/faq',
-        element: <FAQ></FAQ>
+        path: '/blog',
+        element: <Blog></Blog>
       },
       {
         path: '/allServices',

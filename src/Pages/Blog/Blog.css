@@ -1,0 +1,14 @@
+.questions{
+    background-image: linear-gradient(to right,#d9f4bc, #79b39f);
+    margin-bottom: 0px;
+    padding: 20px;
+    text-align: start;
+}
+
+.individual-question{
+    margin: 0px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
