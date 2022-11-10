@@ -22,7 +22,7 @@ const Header = () => {
                 <>
 
                     <li className='font-bold  text-cyan-600 ml-3'>
-                        <Link to='/myReview'>My Reviews</Link>
+                        <Link to='/myReviews'>My Reviews</Link>
                     </li>
                     <li className='font-bold  text-cyan-600 ml-3'>
                         <Link to='/addService'>Add service</Link>
