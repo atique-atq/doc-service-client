@@ -3,9 +3,11 @@ import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import Reviews from './Reviews';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const services = useLoaderData();
+    useTitle('Details');
     const { _id, name, description, price, img } = services;
     const { user } = useContext(AuthContext);
     const [submitReview, setSubmitReview] = useState([]);

@@ -5,8 +5,10 @@ import img from '../../assets/images/loginImage.JPG';
 import { FaGoogle } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+    useTitle('Login')
     const { login, googleSignIn } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const location = useLocation();

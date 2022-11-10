@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/registerImage.jpg';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const SignUp = () => {
+    useTitle('SignUp')
     const [error, setError] = useState('');
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
