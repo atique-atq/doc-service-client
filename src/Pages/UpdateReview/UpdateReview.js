@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Navigate, useLoaderData } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
+import toast from 'react-hot-toast';
 
 const UpdateReview = () => {
-    const review = useLoaderData()[0];
-    console.log('--', review);
+    const review = useLoaderData();
+    console.log('here the review is', review);
     useTitle('Update Reviews');
 
     const handleUpdate = (event) => {
@@ -12,6 +13,23 @@ const UpdateReview = () => {
         const form = event.target;
         const updatedText = form.updatedReview.value;
         console.log('updated text: ', updatedText);
+
+        fetch(`http://localhost:5001/review/${review._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ reviewText: updatedText })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    toast.success('successfully updated', {
+                        position: "top-right"
+                    });
+                }
+            })
     }
 
     return (
@@ -25,7 +43,6 @@ const UpdateReview = () => {
                     <input className="btn btn-info hover:bg-success" type="submit" value="Update" />
                 </div>
             </form>
-
         </div>
     );
 };

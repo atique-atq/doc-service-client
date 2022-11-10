@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const MyReviewRow = ({ reviewRow, handleDelete }) => {
     const { _id, serviceId, userName, userEmail, reviewText, rating } = reviewRow;
+    console.log('-------my review id:', _id);
     const [service, setService] = useState({})
 
     useEffect(() => {
@@ -24,12 +25,12 @@ const MyReviewRow = ({ reviewRow, handleDelete }) => {
                     <small>Your Email: {userEmail}</small>
 
                     <div className='flex flex-row justify-between content-center'>
-                        <Link to={`/updateReview/${serviceId}`}><button className="btn btn-outline btn-primary">Edit</button></Link>
+                        <Link to={`/updateReview/${_id}`}><button className="btn btn-outline btn-primary">Edit</button></Link>
                         <button onClick={() => handleDelete(_id)} className="btn btn-outline btn-secondary">Delete</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
