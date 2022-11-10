@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
     }
 
     const logOut = () => {
-        localStorage.removeItem('genius-token');
+        localStorage.removeItem('doc-token');
         return signOut(auth);
     }
 
