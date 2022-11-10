@@ -8,7 +8,6 @@ const NoPageFound = () => {
         <div className='nopage-container'>
             <h1>404</h1>
             <h2>No Page Found</h2>
-
         </div>
     );
 };
