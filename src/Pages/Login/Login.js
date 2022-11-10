@@ -38,12 +38,12 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log('logged in ------:', user);
+                console.log('logged in:', user);
                 form.reset();
                 navigate(from, { replace: true });
             })
             .catch(er => {
-                console.log('..........', er);
+                console.log('error:', er);
                 toast.error('wrong credential');
                 form.reset();
             })
