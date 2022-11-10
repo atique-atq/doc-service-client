@@ -3,10 +3,6 @@ import { FaStar } from "react-icons/fa";
 
 
 const Reviews = ({ serviceId, reviewResponse }) => {
-    //A review should contain a text, name, and image of the reviewer, rating(optional).
-
-    console.log('--inside review page', serviceId, reviewResponse);
-
 
     return (
         <div className='ml-2'>

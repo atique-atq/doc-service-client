@@ -100,7 +100,9 @@ const ServiceDetails = () => {
                                     </div>
                                 </form>
                                 :
-                                <p className='mt-2 text-center font-bold text-warning'>Please <Link className='text-primary underline' to="/login">Login </Link> to add a review</p>
+                                <button className='mt-2 text-center font-bold text-warning'>Please
+                                    <Link className='text-primary underline' to="/login"> Login </Link> to add a review
+                                </button>
                         }
 
                     </div>

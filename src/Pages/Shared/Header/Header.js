@@ -22,10 +22,10 @@ const Header = () => {
                 <>
 
                     <li className='font-bold  text-cyan-600 ml-3'>
-                        <Link>My Reviews</Link>
+                        <Link to='/myReview'>My Reviews</Link>
                     </li>
                     <li className='font-bold  text-cyan-600 ml-3'>
-                        <Link>Add service</Link>
+                        <Link to='/addService'>Add service</Link>
                     </li>
                     <li className='font-bold'>
                         <button onClick={handleLogOut} className='btn-ghost text-gray-500 ml-4'>Sign Out</button>

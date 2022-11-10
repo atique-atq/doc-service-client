@@ -14,7 +14,7 @@ const HomeServiceCard = ({ service }) => {
 
                     <div className='flex flex-row justify-between content-center'>
                         <button className="btn btn-ghost">Price: {price}</button>
-                        <Link Link to={`/service/${_id}`} >
+                        <Link to={`/service/${_id}`} >
                             <button className="btn btn-outline btn-primary">View Details</button>
                         </Link>
                     </div>
