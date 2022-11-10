@@ -6,16 +6,25 @@ import MyReviewRow from './MyReviewRow';
 
 const MyReviews = () => {
     useTitle('My Reviews');
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const [myReviews, setMyReviews] = useState([]);
     const [refetch, shouldRefetch] = useState([true]);
 
 
     useEffect(() => {
-        fetch(`http://localhost:5001/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5001/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('genius-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            })
             .then(data => setMyReviews(data))
-    }, [user?.email, refetch])
+    }, [user?.email, refetch, logOut])
 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete');
@@ -25,7 +34,6 @@ const MyReviews = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     shouldRefetch(!refetch);
                     if (data.deletedCount > 0) {
                         toast.success('deleted successfully');
