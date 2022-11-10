@@ -14,17 +14,21 @@ const AuthProvider = ({ children }) => {
 
     const googleSignIn = (provider) => {
         setLoading(true);
-        return signInWithPopup(auth, provider);
+        return signInWithPopup(auth, provider)
+            .finally(() => { setLoading(false) });
     }
+
 
     const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
+            .finally(() => { setLoading(false) });
     }
 
     const login = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+            .finally(() => { setLoading(false) });
     }
 
     const logOut = () => {
