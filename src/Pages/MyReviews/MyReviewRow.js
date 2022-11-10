@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FaStar } from "react-icons/fa";
 
-const MyReviewRow = ({ reviewRow }) => {
-    const { _id, serviceId, userName, userEmail, photoUrl, reviewText, rating } = reviewRow;
+const MyReviewRow = ({ reviewRow, handleDelete }) => {
+    const { _id, serviceId, userName, userEmail, reviewText, rating } = reviewRow;
     const [service, setService] = useState({})
 
     useEffect(() => {
@@ -19,10 +19,12 @@ const MyReviewRow = ({ reviewRow }) => {
                     <h2 className="card-title text-[#39bff8] font-semibold">{service?.name}</h2>
                     <p>Review: {reviewText}</p>
                     <small>< FaStar className='text-warning' ></FaStar> rating: {rating}</small>
+                    <small>Your Name: {userName}</small>
+                    <small>Your Email: {userEmail}</small>
 
                     <div className='flex flex-row justify-between content-center'>
                         <button className="btn btn-outline btn-primary">Edit</button>
-                        <button className="btn btn-outline btn-primary">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-outline btn-secondary">Delete</button>
                     </div>
                 </div>
             </div>
