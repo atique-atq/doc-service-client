@@ -10,6 +10,7 @@ import MyReviews from "../../Pages/MyReviews/MyReviews";
 import ServiceDetail from "../../Pages/ServiceDetail/ServiceDetail";
 import NoPageFound from "../../Pages/Shared/NoPageFound/NoPageFound";
 import SignUp from "../../Pages/SignUp/SignUp";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
       {
         path: '/addService',
         element: <PrivateRoute> <AddService></AddService> </PrivateRoute>,
+      },
+      {
+        path: '/updateReview/:serviceId',
+        loader: ({ params }) => fetch(`http://localhost:5001/review/${params.serviceId}`),
+        element: <UpdateReview></UpdateReview>,
       },
       {
         path: '*',
