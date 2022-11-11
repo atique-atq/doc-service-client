@@ -1,6 +1,6 @@
-# Dr. Zebin
+# Website of Dr. Zebin
 
-Live URL [Create React App](https://doctor-service-server-atique-atq.vercel.app/).
+Live URL [Dr. Zebin](https://doctor-service-atq.web.app).
 
 ## Features and Technology:
 
