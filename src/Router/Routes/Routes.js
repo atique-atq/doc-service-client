@@ -3,7 +3,6 @@ import AddService from "../../Pages/AddService/AddService";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Appointment from "../../Pages/Appointment/Appointment";
 import Blog from "../../Pages/Blog/Blog";
-import FAQ from "../../Pages/Home/FAQ/FAQ";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
@@ -42,12 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/allServices',
-        loader: () => fetch('http://localhost:5001/services'),
         element: <AllServices></AllServices>
       },
       {
         path: '/service/:serviceId',
-        loader: ({ params }) => fetch(`http://localhost:5001/service/${params.serviceId}`),
+        loader: ({ params }) => fetch(`https://doctor-service-server-atique-atq.vercel.app/service/${params.serviceId}`),
         element: <ServiceDetail></ServiceDetail>
       },
       {
@@ -60,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/updateReview/:_id',
-        loader: ({ params }) => fetch(`http://localhost:5001/reviewById/${params._id}`),
+        loader: ({ params }) => fetch(`https://doctor-service-server-atique-atq.vercel.app/reviewById/${params._id}`),
         element: <UpdateReview></UpdateReview>,
       },
       {

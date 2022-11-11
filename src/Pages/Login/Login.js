@@ -8,6 +8,7 @@ import toast from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+    console.log('came to login--');
     useTitle('Login')
     const { login, googleSignIn, loading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
@@ -21,10 +22,30 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
-                toast.success('Login Successful', {
-                    position: "top-right"
-                });
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                // get jwt token
+                fetch('https://doctor-service-server-atique-atq.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        // local storage is the easiest but not the best place to store jwt token
+                        localStorage.setItem('doc-token', data.token);
+                        navigate(from, { replace: true });
+                        toast.success('Login Successful', {
+                            position: "top-right"
+                        });
+                    });
+
             })
             .catch(error => {
                 console.error(error);
@@ -46,7 +67,7 @@ const Login = () => {
                 }
 
                 // get jwt token
-                fetch('http://localhost:5001/jwt', {
+                fetch('https://doctor-service-server-atique-atq.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -59,6 +80,9 @@ const Login = () => {
                         // local storage is the easiest but not the best place to store jwt token
                         localStorage.setItem('doc-token', data.token);
                         navigate(from, { replace: true });
+                        toast.success('Login Successful', {
+                            position: "top-right"
+                        });
                     });
             })
             .catch(er => {

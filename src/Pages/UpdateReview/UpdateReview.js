@@ -1,12 +1,13 @@
-import React from 'react';
-import { Navigate, useLoaderData } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Navigate, useLoaderData, useLocation } from 'react-router-dom';
 import useTitle from '../../hooks/useTitle';
 import toast from 'react-hot-toast';
 
 const UpdateReview = () => {
     const review = useLoaderData();
-    console.log('here the review is', review);
     useTitle('Update Reviews');
+    const [navigate, setNavigate] = useState(false);
+    const location = useLocation();
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -14,7 +15,7 @@ const UpdateReview = () => {
         const updatedText = form.updatedReview.value;
         console.log('updated text: ', updatedText);
 
-        fetch(`http://localhost:5001/review/${review._id}`, {
+        fetch(`https://doctor-service-server-atique-atq.vercel.app/review/${review._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -30,6 +31,7 @@ const UpdateReview = () => {
                     });
                 }
             })
+        setNavigate(true);
     }
 
     return (
@@ -43,6 +45,11 @@ const UpdateReview = () => {
                     <input className="btn btn-info hover:bg-success" type="submit" value="Update" />
                 </div>
             </form>
+            {
+                navigate && (
+                    <Navigate to="/myReviews" state={{ from: location }} replace />
+                )
+            }
         </div>
     );
 };

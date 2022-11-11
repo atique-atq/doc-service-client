@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 
 const MyReviewRow = ({ reviewRow, handleDelete }) => {
     const { _id, serviceId, userName, userEmail, reviewText, rating } = reviewRow;
-    console.log('-------my review id:', _id);
     const [service, setService] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5001/service/${serviceId}`)
+        fetch(`https://doctor-service-server-atique-atq.vercel.app/service/${serviceId}`)
             .then(res => res.json())
             .then(data => setService(data));
     }, [serviceId])

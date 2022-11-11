@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, Navigate, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import Reviews from './Reviews';
@@ -12,9 +12,11 @@ const ServiceDetails = () => {
     const { user } = useContext(AuthContext);
     const [submitReview, setSubmitReview] = useState([]);
     const [reviewResponse, setReviewResponse] = useState([]);
+    const [navigate, setNavigate] = useState(false);
+    const location = useLocation();
 
     useEffect(() => {
-        fetch(`http://localhost:5001/review/${_id}`)
+        fetch(`https://doctor-service-server-atique-atq.vercel.app/review/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setReviewResponse(data);
@@ -35,9 +37,10 @@ const ServiceDetails = () => {
             photoUrl: photoUrl,
             reviewText: reviewText,
             rating: rating,
+            insertingTime: new Date(),
         }
 
-        fetch('http://localhost:5001/review', {
+        fetch('https://doctor-service-server-atique-atq.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -56,6 +59,10 @@ const ServiceDetails = () => {
                 }
             })
             .catch(er => console.error('error is.........:', er));
+    }
+
+    const handleLoginFromDetails = () => {
+        setNavigate(true);
     }
 
     return (
@@ -102,9 +109,15 @@ const ServiceDetails = () => {
                                     </div>
                                 </form>
                                 :
-                                <button className='mt-2 text-center font-bold text-warning'>Please
-                                    <Link className='text-primary underline' to="/login"> Login </Link> to add a review
+                                <button onClick={handleLoginFromDetails} className='mt-2 text-center font-bold btn btn-outline btn-info'>
+                                    {/* <Link className='text-primary underline' to="/login"> Login </Link> to add a review */}
+                                    Login to add a review
                                 </button>
+                        }
+                        {
+                            navigate && (
+                                <Navigate to="/login" state={{ from: location }} replace />
+                            )
                         }
 
                     </div>

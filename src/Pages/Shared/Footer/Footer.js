@@ -6,21 +6,21 @@ const Footer = () => {
         <footer className="footer p-32 bg-grey text-info-content">
             <div>
                 <img className='w-44' src={logo} alt="" />
-                <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                <p className='font-semibold'>Dr Suraya Zebin.<br />©2022. All rights reserved.</p>
             </div>
             <div>
                 <span className="footer-title">Services</span>
-                <a href="/" className="link link-hover">Branding</a>
-                <a href="/" className="link link-hover">Design</a>
-                <a href="/" className="link link-hover">Marketing</a>
-                <a href="/" className="link link-hover">Advertisement</a>
+                <a href="/" className="link link-hover">Surgery</a>
+                <a href="/" className="link link-hover">Radiology</a>
+                <a href="/" className="link link-hover">General Practice</a>
+                <a href="/" className="link link-hover">Therapy</a>
             </div>
             <div>
                 <span className="footer-title">Company</span>
-                <a href="/" className="link link-hover">About us</a>
+                <a href="/" className="link link-hover">About Me</a>
                 <a href="/" className="link link-hover">Contact</a>
                 <a href="/" className="link link-hover">Jobs</a>
-                <a href="/" className="link link-hover">Press kit</a>
+                {/* <a href="/" className="link link-hover">Press kit</a> */}
             </div>
             <div>
                 <span className="footer-title">Legal</span>
