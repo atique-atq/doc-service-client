@@ -77,7 +77,6 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        // local storage is the easiest but not the best place to store jwt token
                         localStorage.setItem('doc-token', data.token);
                         navigate(from, { replace: true });
                         toast.success('Login Successful', {

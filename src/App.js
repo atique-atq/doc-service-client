@@ -9,6 +9,7 @@ function App() {
     <div className="max-w-screen-xl mx-auto lg:mx-8">
       <RouterProvider router={router}></RouterProvider>
       <Toaster></Toaster>
+      
     </div>
   );
 }
